@@ -5,7 +5,9 @@
 	"scripts": {
 		"dev:server": "nodemon server/server.js",
 		"dev:client": "parcel watch client/index.html",
-		"client": "parcel build client/index.html"
+		"client": "parcel build client/index.html",
+		"build": "parcel build client/index.html",
+		"start": "node server/server.js"
 	},
 	"author": "",
 	"license": "ISC",

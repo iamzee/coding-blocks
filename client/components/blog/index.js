@@ -23,7 +23,7 @@ const Blog = ({ blog, handleDeleteBlog }) => {
 		<Card>
 			<CardHeader
 				avatar={
-					<Avatar src={`/uploads/${blog.user.avatar}`}>
+					<Avatar src={`/${blog.user.avatar}`}>
 						{/* <AccountCircleIcon /> */}
 					</Avatar>
 				}

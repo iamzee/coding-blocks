@@ -35,7 +35,7 @@ const Profile = ({ user, history }) => {
 						height: 0,
 						paddingTop: '56.25%', // 16:9
 					}}
-					image={`/uploads/${user.avatar}`}
+					image={`/${user.avatar}`}
 				/>
 			)}
 			<CardContent>

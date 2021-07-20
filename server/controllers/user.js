@@ -50,7 +50,7 @@ const update = async (req, res) => {
 
 		const form = formidable({
 			keepExtensions: true,
-			uploadDir: path.join(__dirname, '..', '..', 'dist', 'uploads'),
+			uploadDir: path.join(__dirname, '..', '..', 'dist'),
 		});
 
 		form.parse(req, async (err, fields, files) => {
@@ -121,7 +121,7 @@ const remove = async (req, res) => {
 const create = async (req, res) => {
 	const form = formidable({
 		keepExtensions: true,
-		uploadDir: path.join(__dirname, '..', '..', 'dist', 'uploads'),
+		uploadDir: path.join(__dirname, '..', '..', 'dist'),
 	});
 
 	form.parse(req, async (err, fields, files) => {
