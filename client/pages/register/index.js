@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/navbar';
 import { isAuthenticated } from '../../helpers/auth';
 import Container from '../../components/container';
 import UserForm from '../../components/userForm';
