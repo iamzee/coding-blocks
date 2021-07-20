@@ -8,23 +8,50 @@ const path = require('path');
 
 require('./passport/index')(passport);
 
-const app = express();
+require('./models/user');
+require('./models/blog');
+const sequelize = require('./database');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(passport.initialize());
-app.use(express.static('dist'));
+sequelize.sync().then(() => {
+	const app = express();
 
-app.use('/api', userRoutes);
-app.use('/api', authRoutes);
-app.use('/api', blogRoutes);
+	app.use(express.json());
+	app.use(express.urlencoded({ extended: false }));
+	app.use(passport.initialize());
+	app.use(express.static('dist'));
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+	app.use('/api', userRoutes);
+	app.use('/api', authRoutes);
+	app.use('/api', blogRoutes);
+
+	app.get('*', (req, res) => {
+		res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+	});
+
+	const PORT = process.env.PORT || 3000;
+
+	app.listen(PORT, () => {
+		console.log(`Server is up on port: ${PORT}`);
+	});
 });
 
-const PORT = process.env.PORT || 3000;
+// const app = express();
 
-app.listen(PORT, () => {
-	console.log(`Server is up on port: ${PORT}`);
-});
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+// app.use(passport.initialize());
+// app.use(express.static('dist'));
+
+// app.use('/api', userRoutes);
+// app.use('/api', authRoutes);
+// app.use('/api', blogRoutes);
+
+// app.get('*', (req, res) => {
+// 	res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+// });
+
+// const PORT = process.env.PORT || 3000;
+
+// app.listen(PORT, () => {
+// 	console.log(`Server is up on port: ${PORT}`);
+// });

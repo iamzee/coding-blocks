@@ -28,6 +28,6 @@ User.hasMany(Blog, {
 });
 Blog.belongsTo(User);
 
-Blog.sync();
+// Blog.sync();
 
 module.exports = Blog;

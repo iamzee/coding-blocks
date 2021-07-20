@@ -74,6 +74,6 @@ User.init(
 // User.hasMany(Blog);
 // Blog.belongsTo(User);
 
-User.sync();
+// User.sync();
 
 module.exports = User;
